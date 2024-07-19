@@ -1,6 +1,4 @@
-// config.js
-
-require('dotenv').config(); // Load environment variables from .env file
+require('dotenv').config(); 
 
 module.exports = {
   port: process.env.PORT || 4000,

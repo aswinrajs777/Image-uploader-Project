@@ -51,8 +51,7 @@ const Profile = () => {
     
   useEffect(() => {
     if (!user.token) {
-      // Redirect to login page if not authenticated
-      window.location.href = '/login'; // Replace with your login page URL
+      window.location.href = '/login'; 
     }
   }, [user]);
 
@@ -82,21 +81,18 @@ function MyVerticallyCenteredModal(props) {
             
           } else {
             setError('Failed to update profile image URL');
-            // Handle specific error scenarios if needed
           }
         } catch (error) {
           console.error('Error setting profile image URL:', error);
           setError('Failed to update profile image URL');
-          // Handle network errors or other exceptions
         }
       };
     
       const handleDelete = async (urlToDelete) => {
         try {
-          // Make a DELETE request to your backend API
           const response = await axios.delete(`https://image-uploader-project-4ezl.onrender.com/deleteImageUrl/${encodeURIComponent(urlToDelete)}`, {
             headers: {
-              'auth-token': localStorage.getItem('auth-token'), // Include your JWT token for authentication
+              'auth-token': localStorage.getItem('auth-token'), 
             },
           });
     
@@ -106,10 +102,9 @@ function MyVerticallyCenteredModal(props) {
          
         } catch (error) {
           console.error('Error deleting image URL:', error);
-          // Show error toast notification
           toast.error('Failed to delete image URL', {
             position: toast.POSITION.TOP_RIGHT,
-            autoClose: 3000, // Close the toast after 3 seconds
+            autoClose: 3000, 
           });
         }
       };
@@ -136,7 +131,7 @@ function MyVerticallyCenteredModal(props) {
             <Button 
               variant="outline-secondary btn-no-border" 
               onClick={() => handleDelete(url)}
-              style={{ marginLeft: '10px',marginTop:'10px' }} // Adjust margin-left to move the trash icon closer
+              style={{ marginLeft: '10px',marginTop:'10px' }} 
             >
               <FontAwesomeIcon icon={faTrash} />
             </Button>
@@ -233,8 +228,8 @@ function MyVerticallyCenteredModal(props) {
     }
 
     const handleLogout = () => {
-        logout(); // Clear user session
-        window.location.href = '/login'; // Redirect to login page
+        logout(); 
+        window.location.href = '/login'; 
       };
     console.log(selectedUrl);
   return (
@@ -294,27 +289,3 @@ function MyVerticallyCenteredModal(props) {
 };
 
 export default Profile;
-
-
-// import React from 'react'; 
-// import 'bootstrap/dist/css/bootstrap.min.css'; 
-// import { Container, Row, Col, Image, Button } from 'react-bootstrap'; 
-
-// const Profile = () => {
-//      return ( 
-//      <Container className="mt-5"> 
-//      <Row className="justify-content-center"> 
-//         <Col md={6}> <div className="d-flex align-items-center justify-content-between"> 
-//             <Image src="https://via.placeholder.com/150" // Replace with actual image URL 
-//             roundedCircle className="mr-3" style={{ width: '100px', height: '100px' }} /> 
-//             <div className="flex-grow-1 ms-3">
-//                 <h3>Jack Smith</h3> 
-//                 <p>@kingjack • Senior Product Designer at <span style={{ color: '#4353FF' }}>Webflow</span> • He/Him</p> </div> 
-//                 <Button variant="outline-primary">Update picture</Button> 
-//                 </div> 
-//                 </Col> 
-//                 </Row> 
-//                 </Container> 
-//                 );
-//              }; 
-// export default Profile;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import './Login.css'; // Import the custom CSS
+import './Login.css'; 
 import { useUser } from '../../Context/UserContext'; 
 import { toast } from 'react-toastify';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import './Register.css'; // Import custom CSS if needed
+import './Register.css'; 
 import { Link, useNavigate} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 

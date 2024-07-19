@@ -9,7 +9,7 @@ export const UserProvider = ({ children }) => {
     token: localStorage.getItem('auth-token') || '',
     name: localStorage.getItem('name') || '',
     id: localStorage.getItem('user-id') || '',
-    profileimage: localStorage.getItem('profileimage') || null, // Initialize profileimage from localStorage
+    profileimage: localStorage.getItem('profileimage') || null, 
   });
 
   const login = (token, name, id, profileimage = null) => {
@@ -18,7 +18,7 @@ export const UserProvider = ({ children }) => {
     localStorage.setItem('name', name);
     localStorage.setItem('user-id', id);
     if (profileimage) {
-      localStorage.setItem('profileimage', profileimage); // Store profileimage in localStorage
+      localStorage.setItem('profileimage', profileimage); 
     }
   };
 
@@ -27,7 +27,7 @@ export const UserProvider = ({ children }) => {
     localStorage.removeItem('auth-token');
     localStorage.removeItem('name');
     localStorage.removeItem('user-id');
-    localStorage.removeItem('profileimage'); // Remove profileimage from localStorage on logout
+    localStorage.removeItem('profileimage'); 
   };
 
   const updateProfileImage = (newProfileImage) => {
@@ -35,7 +35,7 @@ export const UserProvider = ({ children }) => {
       ...prevUser,
       profileimage: newProfileImage,
     }));
-    localStorage.setItem('profileimage', newProfileImage); // Update profileimage in localStorage
+    localStorage.setItem('profileimage', newProfileImage); 
   };
 
   return (
