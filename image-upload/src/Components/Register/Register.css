@@ -1,0 +1,50 @@
+.register-container {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.register-container h2 {
+  margin-bottom: 20px;
+}
+
+.register-container .form-control {
+  margin-bottom: 15px;
+}
+
+.register-container .btn-block {
+  margin-top: 20px;
+}
+
+.register-container button{
+  background-color: #4338CA;
+  border-color: #4338CA;
+}
+.login-button {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 400;
+  color:#4338CA;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login-button:hover {
+  
+  color: #888888;
+}
+.register-container .log-div{
+  display: flex;
+  
+  
+}
+.register-container .log1{
+  display: inline-block;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 600;
+}

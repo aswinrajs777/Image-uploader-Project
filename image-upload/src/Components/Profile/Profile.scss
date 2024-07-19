@@ -1,0 +1,73 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
+.profile-card {
+    max-width: 600px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+  }
+  
+  .profile-header {
+    height: 100px;
+    overflow: hidden;
+  }
+  
+  .profile-background {
+    width: 100%;
+    height: auto;
+  }
+  
+  .profile-info {
+    padding-left: 40px;
+    margin-top: -40px;
+    margin-bottom: 40px;
+  }
+  .profile-picture1 {
+    padding: 20px;
+    
+  }
+  
+  .profile-picture {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #ffffff;
+    margin-top: -60px;
+    
+    box-shadow: 0 0 0 3px #ffffff;
+  }
+  
+  .profile-info h2 {
+    font-size: 1.5em;
+    text-transform: capitalize;
+  }
+  
+  .profile-info p {
+    color: #666;
+  }
+  
+  .profile-card button{
+    margin-top: -100px;
+    position: absolute;
+  }
+  
+  .webflow-logo {
+    font-weight: bold;
+    color: #00b5e2;
+  }
+  .upload-button1{
+    margin-top: 50px;
+    float: right;
+    margin-right: $spacer * 9;
+  }
+  .profile-card .btn{
+    border: 1px solid #e5e5e6;
+  }
+.btn-no-border {
+  border: none !important;
+}
+  
