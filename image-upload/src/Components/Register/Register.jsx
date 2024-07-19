@@ -23,7 +23,7 @@ const Register = () => {
 
     try {
       let responseData;
-      await fetch('http://localhost:4000/signup', {
+      await fetch('https://image-uploader-project-4ezl.onrender.com/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

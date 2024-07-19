@@ -64,7 +64,7 @@ function MyVerticallyCenteredModal(props) {
       const handleclick = async () => {
         try {
           const response = await axios.post(
-            'http://localhost:4000/setProfileImageUrl',
+            'https://image-uploader-project-4ezl.onrender.com/setProfileImageUrl',
             { selectedUrl },
             {
               headers: {
@@ -94,7 +94,7 @@ function MyVerticallyCenteredModal(props) {
       const handleDelete = async (urlToDelete) => {
         try {
           // Make a DELETE request to your backend API
-          const response = await axios.delete(`http://localhost:4000/deleteImageUrl/${encodeURIComponent(urlToDelete)}`, {
+          const response = await axios.delete(`https://image-uploader-project-4ezl.onrender.com/deleteImageUrl/${encodeURIComponent(urlToDelete)}`, {
             headers: {
               'auth-token': localStorage.getItem('auth-token'), // Include your JWT token for authentication
             },
@@ -170,7 +170,7 @@ function MyVerticallyCenteredModal(props) {
         const fetchImageUrls = async () => {
           try {
             const token = localStorage.getItem('auth-token');
-            const response = await fetch('http://localhost:4000/imageUrls', {
+            const response = await fetch('https://image-uploader-project-4ezl.onrender.com/imageUrls', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -206,7 +206,7 @@ function MyVerticallyCenteredModal(props) {
             console.log(imageUrls);
             try {
                 const token = localStorage.getItem('auth-token');
-                const response = await fetch('http://localhost:4000/setImageUrls', {
+                const response = await fetch('https://image-uploader-project-4ezl.onrender.com/setImageUrls', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',

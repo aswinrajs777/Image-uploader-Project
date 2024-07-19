@@ -18,7 +18,7 @@ const Login = () => {
 
     try {
       let responseData;
-      await fetch('http://localhost:4000/login', {
+      await fetch('https://image-uploader-project-4ezl.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
