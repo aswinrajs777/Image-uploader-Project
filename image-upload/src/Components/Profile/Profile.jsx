@@ -20,7 +20,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const options = {
     apiKey: "public_W142ihkES6XEyK9bgMhE2tzJqKxp", 
     maxFileCount: 4,
-    maxFileSizeBytes: 5120,
+    maxFileSizeBytes: 5242880,
     editor: {
     "images": {
       "allowResizeOnMove": true,
