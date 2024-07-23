@@ -119,12 +119,12 @@ app.get('/profile', fetchUser, (req, res) => {
 
 app.post('/setImageUrls', fetchUser, async (req, res) => {
   try {
-    const { files } = req.body;
-    console.log(files);
+    const { newImageUrls } = req.body;
+    console.log(newImageUrls);
 
     const user = await Users.findOneAndUpdate(
       { _id: req.user.id },
-      { $push: { imageUrls: files  } },
+      { $push: { imageUrls: { $each: newImageUrls } }},
       { new: true }
     );
 

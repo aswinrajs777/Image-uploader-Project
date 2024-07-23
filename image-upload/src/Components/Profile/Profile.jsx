@@ -14,13 +14,13 @@ import axios from 'axios';
 import { useUser } from '../../Context/UserContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
  
-
+const baseUrl="https://image-uploader-project-4ezl.onrender.com";
 
 
 const options = {
     apiKey: "public_W142ihkES6XEyK9bgMhE2tzJqKxp", 
     maxFileCount: 4,
-    maxFileSizeBytes: 5120,
+    maxFileSizeBytes: 5242880,
     editor: {
     "images": {
       "allowResizeOnMove": true,
@@ -63,7 +63,7 @@ function MyVerticallyCenteredModal(props) {
       const handleclick = async () => {
         try {
           const response = await axios.post(
-            'https://image-uploader-project-4ezl.onrender.com/setProfileImageUrl',
+            `${baseUrl}/setProfileImageUrl`,
             { selectedUrl },
             {
               headers: {
@@ -90,13 +90,13 @@ function MyVerticallyCenteredModal(props) {
     
       const handleDelete = async (urlToDelete) => {
         try {
-          const response = await axios.delete(`https://image-uploader-project-4ezl.onrender.com/deleteImageUrl/${encodeURIComponent(urlToDelete)}`, {
+          const response = await axios.delete(`${baseUrl}/deleteImageUrl/${encodeURIComponent(urlToDelete)}`, {
             headers: {
               'auth-token': localStorage.getItem('auth-token'), 
             },
           });
     
-          console.log(response.data); 
+          // console.log(response.data); 
           toast.success('Image URL deleted successfully');
           setStatus(status+1);
          
@@ -165,7 +165,7 @@ function MyVerticallyCenteredModal(props) {
         const fetchImageUrls = async () => {
           try {
             const token = localStorage.getItem('auth-token');
-            const response = await fetch('https://image-uploader-project-4ezl.onrender.com/imageUrls', {
+            const response = await fetch(`${baseUrl}/imageUrls`, {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -176,7 +176,7 @@ function MyVerticallyCenteredModal(props) {
             const data = await response.json();
     
             if (response.ok) {
-                console.log(data.imageUrls)
+                // console.log(data.imageUrls)
               setImgurl(data.imageUrls);
             } else {
               setError(data.errors);
@@ -192,22 +192,26 @@ function MyVerticallyCenteredModal(props) {
 
     const onUpload = async(files)=>{
         setImgdummy(files);
-        console.log(imgdummy);
-        setImageUrls([...imageUrls,files])
+        const newImageUrls = files.split(/\r?\n/);
+        console.log(newImageUrls)
+        setImageUrls([...imageUrls, ...newImageUrls]);
+        console.log(imageUrls)
+        
+
         if(imgurl)
         {
             toast.success("image added");
             
-            console.log(imageUrls);
+            // console.log(imageUrls);
             try {
                 const token = localStorage.getItem('auth-token');
-                const response = await fetch('https://image-uploader-project-4ezl.onrender.com/setImageUrls', {
+                const response = await fetch(`${baseUrl}/setImageUrls`, {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
                     'auth-token': token,
                   },
-                  body: JSON.stringify({ files}),
+                  body: JSON.stringify({ newImageUrls}),
                 });
           
                 const data = await response.json();
@@ -231,7 +235,7 @@ function MyVerticallyCenteredModal(props) {
         logout(); 
         window.location.href = '/login'; 
       };
-    console.log(selectedUrl);
+    // console.log(selectedUrl);
   return (
     <>
     <Container fluid className="d-flex justify-content-center py-4">
